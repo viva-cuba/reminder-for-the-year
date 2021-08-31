@@ -103,7 +103,7 @@ def say_message(message):
     voice.save(file_voice_name)
     playsound.playsound(file_voice_name)
     os.remove(file_voice_name)
-    print("Ксюха: "+message)
+    print("Маруся: "+message)
   
 if __name__ == '__main__':
     reminder_for_the_year()
