@@ -40,6 +40,13 @@ def do_tris_command(message):
             current_date = record
             if len(record) == 4:
                 current_date  = '0' + current_date
+            if os.path.exists('REMINDER_BY_DAY/'+ current_date +'.txt'):   
+                say_message('такой файл существует')
+                file = open('REMINDER_BY_DAY/'+ current_date +'.txt', 'r', encoding='utf-8')
+                f_all = file.read()
+                say_message('читаю содержимое файла ' + f_all + ' файл прочитан, теперь можешь задать другую дату или добавить запись в этот файл')
+                file.close() 
+                return message
             say_message('говори, записываю')
             record_1 = listen_command()
             file = open('REMINDER_BY_DAY/'+ current_date +'.txt', 'w', encoding='utf-8')
