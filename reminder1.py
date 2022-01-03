@@ -73,17 +73,17 @@ def do_tris_command(message):
         # exit()
 
     elif "удали файл" in message:
-        os.startfile('C:/assistent_1/REMINDER_BY_DAY')
+#         os.startfile('C:/assistent_1/REMINDER_BY_DAY')
         say_message(str('какой файл удалить'))
         record = listen_command()
         record = record.replace('августа', '08').replace('сентября', '09').replace('октября', '10').replace('ноября', '11').replace('декабря', '12').replace('января', '01').replace('февраля', '02').replace('марта', '03').replace('апреля', '04').replace('мая', '05').replace('июня', '06').replace('июля', '07')
         current_date = record
         if len(record) == 4:
             current_date  = '0' + current_date
-        if os.path.exists('C:/assistent_1/REMINDER_BY_DAY/'+ current_date +'.txt'):
+        if os.path.exists('REMINDER_BY_DAY/'+ current_date +'.txt'):
             os.remove('REMINDER_BY_DAY/' + current_date + '.txt')
-            ked.send("alt+f4")
-            ked.send("enter")
+#             ked.send("alt+f4")
+#             ked.send("enter")
             say_message('файл ' + current_date + ' удалён, что то ещё?')
         else: 
             say_message('такого файла не существует, задай другую дату')
