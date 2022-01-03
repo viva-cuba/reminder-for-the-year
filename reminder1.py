@@ -80,11 +80,13 @@ def do_tris_command(message):
         current_date = record
         if len(record) == 4:
             current_date  = '0' + current_date
-        os.remove('REMINDER_BY_DAY/' + current_date + '.txt')
-        ked.send("alt+f4")
-        ked.send("enter")
-        say_message('файл ' + current_date + ' удалён, что то ещё?')
-
+        if os.path.exists('C:/assistent_1/REMINDER_BY_DAY/'+ current_date +'.txt'):
+            os.remove('REMINDER_BY_DAY/' + current_date + '.txt')
+            ked.send("alt+f4")
+            ked.send("enter")
+            say_message('файл ' + current_date + ' удалён, что то ещё?')
+        else: 
+            say_message('такого файла не существует, задай другую дату')
     elif "выход" in message:
         exit()
         
